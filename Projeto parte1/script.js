@@ -44,11 +44,8 @@ function salvarTarefas() {
 }
 
 function mudarTema() {
-  const corpo = document.body;
-  const atual = corpo.style.backgroundColor;
-
-  corpo.style.backgroundColor = (atual === "white" || atual === "") ? "#1e1e1e" : "white";
-  corpo.style.color = (corpo.style.backgroundColor === "white") ? "black" : "white";
+  const body = document.body;
+  body.classList.toggle("claro");
 }
 
 function mostrarListasSalvas() {
