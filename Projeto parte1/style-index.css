@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  background-color: #1e1e1e;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.entrada {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.entrada input {
+  width: 50%;
+  min-width: 200px;
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+  background-color: #3a3a3a;
+  color: white;
+  transition: box-shadow 0.3s ease;
+}
+
+.entrada input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #888;
+}
+
+.entrada button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #bfbfbf;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.entrada button:hover {
+  background-color: #999;
+}
+
+.container-lista {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+  margin: auto;
+}
+
+ul#lista {
+  list-style: none;
+  padding: 0;
+}
+
+ul#lista li {
+  background-color: #444;
+  border-radius: 20px;
+  margin: 10px 0;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+ul#lista li:hover {
+  transform: scale(1.02);
+}
+
+ul#lista li button {
+  background-color: #ccc;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.botoes-finais {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.botoes-finais button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #3d3d3d;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botoes-finais button:hover {
+  background-color: #555;
+}
+
+#botao-tema {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #3d3d3d;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#botao-sobre {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3d3d3d;
+  padding: 10px 30px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .entrada input {
+    width: 80%;
+  }
+
+  .container-lista {
+    width: 90%;
+  }
+}
