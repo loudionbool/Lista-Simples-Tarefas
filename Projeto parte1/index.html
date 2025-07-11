@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Minha Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Minha lista de tarefas</h1>
+
+  <div class="entrada">
+    <input type="text" id="tarefa" placeholder="Digite sua tarefa...">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+  </div>
+
+  <div class="container-lista">
+    <ul id="lista">
+      <!-- As tarefas aparecerão aqui -->
+    </ul>
+    <div class="botoes-finais">
+      <button onclick="salvarTarefas()">Salvar Lista</button>
+      <button onclick="mostrarListasSalvas()">Listas Salvas</button>
+    </div>
+  </div>
+
+  <button id="botao-tema" onclick="mudarTema()">Mudar Tema</button>
+  <a href="sobre.html" id="botao-sobre">SOBRE</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
