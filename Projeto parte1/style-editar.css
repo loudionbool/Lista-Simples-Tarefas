@@ -68,7 +68,7 @@ h1 {
 }
 
 .container-lista button:hover {
-  transform: scale(1.01);
+   background-color: #999;
 }
 
 ul {
