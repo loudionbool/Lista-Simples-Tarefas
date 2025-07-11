@@ -102,7 +102,17 @@ a:hover {
     padding: 15px;
   }
 }
-
+#botao-tema {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #3d3d3d;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 /* Modo Claro */
 body.claro {
   background-color: #ffffff;
