@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+#nomeLista {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.entrada {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.entrada input {
+  width: 50%;
+  min-width: 200px;
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+  background-color: #3a3a3a;
+  color: white;
+}
+
+.entrada button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #bfbfbf;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container-lista {
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  background-color: #444;
+  border-radius: 20px;
+  margin: 10px 0;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  background-color: #ccc;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.voltar {
+  display: inline-block;
+  margin-top: 30px;
+  color: #ccc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.voltar:hover {
+  color: white;
+}
+
+.botao-tema {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3d3d3d;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.botao-tema:hover {
+  background-color: #555;
+}
+
+/* Modo Claro */
+body.claro {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.claro h1 {
+  color: #000;
+  text-shadow: none;
+}
+
+body.claro .entrada input {
+  background-color: #f2f2f2;
+  color: #000;
+}
+
+body.claro .entrada button,
+body.claro .botao-tema,
+body.claro li button {
+  background-color: #dddddd;
+  color: #000;
+}
+
+body.claro .container-lista {
+  background-color: #f2f2f2;
+}
+
+body.claro li {
+  background-color: #e0e0e0;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .entrada input {
+    width: 90%;
+  }
+
+  .container-lista {
+    width: 90%;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botao-tema {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 16px;
+  }
+}
