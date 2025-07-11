@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Lista</title>
+  <link rel="stylesheet" href="style-index.css">
+</head>
+<body>
+
+  <h1>Editar Lista</h1>
+  <p id="nomeLista" style="font-size: 1.2em; margin-bottom: 20px;"></p>
+
+  <div class="entrada">
+    <input type="text" id="novaTarefa" placeholder="Digite nova tarefa...">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+  </div>
+
+  <div class="container-lista">
+    <ul id="lista"></ul>
+    <button onclick="salvarListaEditada()">Salvar Alterações</button>
+  </div>
+
+  <a href="listas.html" style="margin-top: 30px; display: inline-block;">← Voltar</a>
+
+  <script>
+    let nome = "";
+    let tarefas = [];
+
+    function carregarDados() {
+      const urlParams = new URLSearchParams(window.location.search);
+      nome = urlParams.get("nome");
+
+      document.getElementById("nomeLista").textContent = "Editando: " + nome;
+
+      const listas = JSON.parse(localStorage.getItem("MinhasListas") || "{}");
+      tarefas = listas[nome] || [];
+
+      tarefas.forEach(tarefa => {
+        const li = criarItem(tarefa);
+        document.getElementById("lista").appendChild(li);
+      });
+    }
+
+    function criarItem(texto) {
+      const li = document.createElement("li");
+
+      const span = document.createElement("span");
+      span.textContent = texto;
+
+      const btnRemover = document.createElement("button");
+      btnRemover.textContent = "Remover";
+      btnRemover.onclick = () => li.remove();
+
+      li.appendChild(span);
+      li.appendChild(btnRemover);
+      return li;
+    }
+
+    function adicionarTarefa() {
+      const input = document.getElementById("novaTarefa");
+      const texto = input.value.trim();
+
+      if (texto === "") return;
+
+      const li = criarItem(texto);
+      document.getElementById("lista").appendChild(li);
+      input.value = "";
+    }
+
+    function salvarListaEditada() {
+      const spans = document.querySelectorAll("#lista li span");
+      const novaLista = Array.from(spans).map(span => span.textContent);
+
+      const listas = JSON.parse(localStorage.getItem("MinhasListas") || "{}");
+      listas[nome] = novaLista;
+      localStorage.setItem("MinhasListas", JSON.stringify(listas));
+
+      alert("Lista atualizada!");
+      window.location.href = "listas.html";
+    }
+
+    window.onload = carregarDados;
+  </script>
+
+</body>
+</html>
