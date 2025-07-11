@@ -1,4 +1,3 @@
-// Adiciona uma nova tarefa à lista
 function adicionarTarefa() {
   const input = document.getElementById("tarefa");
   const texto = input.value.trim();
@@ -11,7 +10,6 @@ function adicionarTarefa() {
   input.value = "";
 }
 
-// Cria o elemento visual da tarefa (li + botão Remover)
 function criarItemDeLista(texto) {
   const li = document.createElement("li");
 
@@ -29,7 +27,6 @@ function criarItemDeLista(texto) {
   return li;
 }
 
-// Salva a lista atual no localStorage com um nome dado pelo usuário
 function salvarTarefas() {
   const nomeLista = prompt("Digite um nome para esta lista:");
 
@@ -46,17 +43,6 @@ function salvarTarefas() {
   alert("Lista salva como: " + nomeLista);
 }
 
-// Carrega automaticamente uma lista padrão se houver (última usada, opcional)
-function carregarListaTemporaria() {
-  const listaTemporaria = JSON.parse(localStorage.getItem("ListaTemporaria") || "[]");
-
-  listaTemporaria.forEach(tarefa => {
-    const li = criarItemDeLista(tarefa);
-    document.getElementById("lista").appendChild(li);
-  });
-}
-
-// Muda o tema visual da página
 function mudarTema() {
   const corpo = document.body;
   const atual = corpo.style.backgroundColor;
@@ -65,7 +51,6 @@ function mudarTema() {
   corpo.style.color = (corpo.style.backgroundColor === "white") ? "black" : "white";
 }
 
-// Chamada inicial ao abrir a página
-window.onload = () => {
-  carregarListaTemporaria();
-};
+function mostrarListasSalvas() {
+  window.location.href = "listas.html";
+}
