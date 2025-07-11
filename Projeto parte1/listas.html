@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Listas Salvas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Listas Salvas</h1>
+  <div id="listasContainer"></div>
+  <a href="index.html" style="display:block;margin-top:30px;">← Voltar</a>
+
+  <script>
+    function carregarListasSalvas() {
+      const listas = JSON.parse(localStorage.getItem("MinhasListas") || "{}");
+      const container = document.getElementById("listasContainer");
+      container.innerHTML = "";
+
+      Object.keys(listas).forEach(nome => {
+        const div = document.createElement("div");
+        div.className = "lista-salva";
+        
+        const titulo = document.createElement("h3");
+        titulo.textContent = nome;
+        
+        const ul = document.createElement("ul");
+        listas[nome].forEach(tarefa => {
+          const li = document.createElement("li");
+          li.textContent = tarefa;
+          ul.appendChild(li);
+        });
+
+        const btnEditar = document.createElement("button");
+        btnEditar.textContent = "Editar";
+        btnEditar.onclick = () => editarLista(nome);
+
+        const btnRemover = document.createElement("button");
+        btnRemover.textContent = "Remover";
+        btnRemover.onclick = () => removerLista(nome);
+
+        div.appendChild(titulo);
+        div.appendChild(ul);
+        div.appendChild(btnEditar);
+        div.appendChild(btnRemover);
+        container.appendChild(div);
+      });
+
+      if (Object.keys(listas).length === 0) {
+        container.innerHTML = "<p>Nenhuma lista salva.</p>";
+      }
+    }
+
+    function editarLista(nome) {
+      const novaLista = prompt("Digite as tarefas separadas por vírgula:", 
+        JSON.parse(localStorage.getItem("MinhasListas"))[nome].join(", "));
+      
+      if (novaLista !== null) {
+        const listas = JSON.parse(localStorage.getItem("MinhasListas") || "{}");
+        listas[nome] = novaLista.split(",").map(t => t.trim());
+        localStorage.setItem("MinhasListas", JSON.stringify(listas));
+        carregarListasSalvas();
+      }
+    }
+
+    function removerLista(nome) {
+      const confirmacao = confirm("Tem certeza que deseja remover esta lista?");
+      if (confirmacao) {
+        const listas = JSON.parse(localStorage.getItem("MinhasListas") || "{}");
+        delete listas[nome];
+        localStorage.setItem("MinhasListas", JSON.stringify(listas));
+        carregarListasSalvas();
+      }
+    }
+
+    window.onload = carregarListasSalvas;
+  </script>
+
+</body>
+</html>
