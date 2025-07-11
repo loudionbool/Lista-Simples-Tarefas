@@ -32,3 +32,29 @@ a {
 a:hover {
   color: white;
 }
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .entrada input,
+  .entrada button,
+  .container-lista,
+  .lista-salva {
+    width: 90% !important;
+  }
+
+  ul#lista li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botoes-finais {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  body {
+    padding: 15px;
+  }
+}
