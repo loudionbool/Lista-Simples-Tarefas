@@ -137,15 +137,32 @@ ul#lista li button {
 }
 
 @media (max-width: 600px) {
-  .entrada input {
-    width: 80%;
+  h1 {
+    font-size: 1.8em;
   }
 
-  .container-lista {
-    width: 90%;
+  .entrada input,
+  .entrada button,
+  .container-lista,
+  .lista-salva {
+    width: 90% !important;
+  }
+
+  ul#lista li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botoes-finais {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  body {
+    padding: 15px;
   }
 }
-/* Modo Claro */
+
 body.claro {
   background-color: #ffffff;
   color: #000000;
