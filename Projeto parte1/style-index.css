@@ -145,3 +145,34 @@ ul#lista li button {
     width: 90%;
   }
 }
+/* Modo Claro */
+body.claro {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.claro .entrada input {
+  background-color: #e8e8e8;
+  color: #000;
+}
+
+body.claro .entrada input:focus {
+  box-shadow: 0 0 10px #888;
+}
+
+body.claro .entrada button,
+body.claro .botoes-finais button,
+body.claro #botao-tema,
+body.claro #botao-sobre,
+body.claro ul#lista li button {
+  background-color: #dddddd;
+  color: #000;
+}
+
+body.claro .container-lista {
+  background-color: #f2f2f2;
+}
+
+body.claro ul#lista li {
+  background-color: #e0e0e0;
+}
