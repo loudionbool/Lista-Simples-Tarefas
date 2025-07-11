@@ -1,3 +1,4 @@
+/* Atualizado: style-index.css */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
@@ -6,15 +7,17 @@ body {
   font-family: 'Orbitron', sans-serif;
   text-align: center;
   padding: 20px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
   font-size: 2.5em;
   margin-bottom: 30px;
   color: #ffffff;
+  text-shadow: 1px 1px 2px #000;
 }
 
+/* Entrada de tarefas */
 .entrada {
   display: flex;
   justify-content: center;
@@ -54,6 +57,7 @@ h1 {
   background-color: #999;
 }
 
+/* Lista de tarefas */
 .container-lista {
   background-color: #2c2c2c;
   padding: 20px;
@@ -112,64 +116,36 @@ ul#lista li button {
   background-color: #555;
 }
 
-#botao-tema {
+/* Botão de tema em todas as páginas */
+.botao-tema {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   background-color: #3d3d3d;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 20px;
+  color: white;
   border: none;
-  color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 999;
 }
 
-#botao-sobre {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #3d3d3d;
-  padding: 10px 30px;
-  border-radius: 20px;
-  color: white;
-  text-decoration: none;
+.botao-tema:hover {
+  background-color: #555;
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.8em;
-  }
-
-  .entrada input,
-  .entrada button,
-  .container-lista,
-  .lista-salva {
-    width: 90% !important;
-  }
-
-  ul#lista li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .botoes-finais {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  body {
-    padding: 15px;
-  }
-}
-
+/* Modo Claro */
 body.claro {
   background-color: #ffffff;
   color: #000000;
 }
-body.claro h1{
+
+body.claro h1 {
   color: #000000;
+  text-shadow: none;
 }
+
 body.claro .entrada input {
   background-color: #e8e8e8;
   color: #000;
@@ -181,10 +157,9 @@ body.claro .entrada input:focus {
 
 body.claro .entrada button,
 body.claro .botoes-finais button,
-body.claro #botao-tema,
-body.claro #botao-sobre,
+body.claro .botao-tema,
 body.claro ul#lista li button {
-  background-color: #b5b3b3;
+  background-color: #dddddd;
   color: #000;
 }
 
@@ -194,4 +169,24 @@ body.claro .container-lista {
 
 body.claro ul#lista li {
   background-color: #e0e0e0;
+}
+
+@media (max-width: 600px) {
+  .entrada input {
+    width: 80%;
+  }
+
+  .container-lista {
+    width: 90%;
+  }
+
+  ul#lista li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botoes-finais {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
