@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Listas Salvas</title>
-  <link rel="stylesheet" href="style-lista.css">
+  <link rel="stylesheet" href="style-listas.css">
 </head>
 <body>
 
   <h1>Listas Salvas</h1>
   <div id="listasContainer"></div>
-  <a href="index.html" style="display:block;margin-top:30px;">← Voltar</a>
+
+  <a href="index.html" class="voltar">← Voltar</a>
   <button class="botao-tema" onclick="mudarTema()">Mudar Tema</button>
 
   <script>
@@ -62,11 +63,12 @@
         carregarListasSalvas();
       }
     }
+
     function mudarTema() {
       document.body.classList.toggle("claro");
     }
+
     window.onload = carregarListasSalvas;
   </script>
-
 </body>
 </html>
