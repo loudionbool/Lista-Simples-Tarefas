@@ -24,11 +24,19 @@ function adicionarTarefa() {
 }
 
 function salvarTarefas() {
+  const nome = prompt("Digite um nome para esta lista:");
+  if (!nome) return;
+
   const tarefas = [];
   document.querySelectorAll("#lista li span").forEach(span => {
     tarefas.push(span.textContent);
   });
-  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+
+  const listas = JSON.parse(localStorage.getItem("MinhasListas") || "{}");
+  listas[nome] = tarefas;
+  localStorage.setItem("MinhasListas", JSON.stringify(listas));
+
+  alert("Lista salva como: " + nome);
 }
 
 function carregarTarefas() {
