@@ -8,7 +8,7 @@
 <body>
 
   <h1>Editar Lista</h1>
-  <p id="nomeLista" style="font-size: 1.2em; margin-bottom: 20px;"></p>
+  <p id="nomeLista"></p>
 
   <div class="entrada">
     <input type="text" id="novaTarefa" placeholder="Digite nova tarefa...">
@@ -20,15 +20,16 @@
     <button onclick="salvarListaEditada()">Salvar Alterações</button>
   </div>
 
-  <a href="listas.html" style="margin-top: 30px; display: inline-block;">← Voltar</a>
+  <a class="voltar" href="listas.html">← Voltar</a>
+  <button class="botao-tema" onclick="mudarTema()">Mudar Tema</button>
 
   <script>
     let nome = "";
     let tarefas = [];
 
     function carregarDados() {
-      const urlParams = new URLSearchParams(window.location.search);
-      nome = urlParams.get("nome");
+      const params = new URLSearchParams(window.location.search);
+      nome = params.get("nome");
 
       document.getElementById("nomeLista").textContent = "Editando: " + nome;
 
@@ -43,7 +44,6 @@
 
     function criarItem(texto) {
       const li = document.createElement("li");
-
       const span = document.createElement("span");
       span.textContent = texto;
 
@@ -59,7 +59,6 @@
     function adicionarTarefa() {
       const input = document.getElementById("novaTarefa");
       const texto = input.value.trim();
-
       if (texto === "") return;
 
       const li = criarItem(texto);
@@ -79,8 +78,11 @@
       window.location.href = "listas.html";
     }
 
+    function mudarTema() {
+      document.body.classList.toggle("claro");
+    }
+
     window.onload = carregarDados;
   </script>
-
 </body>
 </html>
