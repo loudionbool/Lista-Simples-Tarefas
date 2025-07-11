@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Listas Salvas</title>
-  <link rel="stylesheet" href="style-lista.css">
+  <link rel="stylesheet" href="style-listas.css">
 </head>
 <body>
 
@@ -33,7 +33,9 @@
 
         const btnEditar = document.createElement("button");
         btnEditar.textContent = "Editar";
-        btnEditar.onclick = () => editarLista(nome, tarefas);
+        btnEditar.onclick = () => {
+          window.location.href = `editar.html?nome=${encodeURIComponent(nome)}`;
+        };
 
         const btnRemover = document.createElement("button");
         btnRemover.textContent = "Remover";
@@ -48,18 +50,6 @@
 
       if (Object.keys(listas).length === 0) {
         container.innerHTML = "<p>Nenhuma lista salva.</p>";
-      }
-    }
-
-    function editarLista(nome, tarefasOriginais) {
-      const novaLista = prompt("Edite as tarefas separadas por vírgula:", tarefasOriginais.join(", "));
-
-      if (novaLista !== null) {
-        const novasTarefas = novaLista.split(",").map(t => t.trim());
-        const listas = JSON.parse(localStorage.getItem("MinhasListas") || "{}");
-        listas[nome] = novasTarefas;
-        localStorage.setItem("MinhasListas", JSON.stringify(listas));
-        carregarListasSalvas();
       }
     }
 
