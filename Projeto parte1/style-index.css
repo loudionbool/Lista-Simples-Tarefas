@@ -150,7 +150,7 @@ body.claro {
   background-color: #ffffff;
   color: #000000;
 }
-body.claro.h1{
+body.claro .h1{
   color: #000000;
 }
 body.claro .entrada input {
@@ -167,7 +167,7 @@ body.claro .botoes-finais button,
 body.claro #botao-tema,
 body.claro #botao-sobre,
 body.claro ul#lista li button {
-  background-color: #969696;
+  background-color: #b5b3b3;
   color: #000;
 }
 
